@@ -13,7 +13,7 @@
   --color-grey-light-3: #f0eeee;
   --color-grey-light-4: #ccc;
 
-  --color-grey-dark-1: #333;
+  --color-grey-dark-1: #272533;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
 
@@ -60,12 +60,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Nunito', sans-serif;
   color: var(--color-grey-light-1);
-  background: var(--color-purple);
+  background: var(--color-grey-dark-1);
 
   min-height: 100vh;
 
   button {
     cursor: pointer;
+    outline: 0;
   }
 
   #weather {

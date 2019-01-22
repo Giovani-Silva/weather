@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Spinner from './components/spinner';
-import Mobile from './components/btnMobile';
+import Spinner from './components/Spinner';
+import Mobile from './components/Mobile';
 
 class App extends Component {
   state = {
