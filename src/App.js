@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 
 import Spinner from './components/spinner';
+import Mobile from './components/btnMobile';
+
 class App extends Component {
-  openMenu = () => {
-    console.log('open list');
+  state = {
+    loading: true,
   };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ loading: false });
+    }, 1000);
+  }
+
   render() {
     return (
       <div className="container">
         <header className="header">
-          <div className="btn--mobile" onClick={() => this.openMenu()}>
-            <div className="mobile__bar1" />
-            <div className="mobile__bar2" />
-            <div className="mobile__bar3" />
-          </div>
+          <Mobile />
         </header>
-        <Spinner />
+        {this.state.loading && <Spinner />}
       </div>
     );
   }

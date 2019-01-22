@@ -1,26 +1,27 @@
 .btn--mobile {
-    cursor: pointer;
+  background: transparent;
+  border: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  opacity: .5;
+
+  >div {
     width: 2rem;
-    height: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    opacity: .4;
+    height: .3rem;
+    background: var(--color-grey-light-1);
 
-    >div {
-        width: 100%;
-        height: .3rem;
-        background: var(--color-grey-light-1);
+    &:not(:first-child) {
+      width: 75%;
 
-        &:not(:first-child) {
-            width: 75%;
-
-        }
-
-        &:last-child {
-            width: 50%;
-
-        }
     }
+
+    &:last-child {
+      width: 50%;
+
+    }
+  }
 
 }
