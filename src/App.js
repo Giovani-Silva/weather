@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Spinner from './components/Spinner';
 import Mobile from './components/Mobile';
+import Display from './components/Display';
 
 class App extends Component {
   state = {
@@ -20,6 +21,7 @@ class App extends Component {
         <header className="header">
           <Mobile />
         </header>
+        <Display />
         {this.state.loading && <Spinner />}
       </div>
     );

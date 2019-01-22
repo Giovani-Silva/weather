@@ -1,0 +1,29 @@
+.display {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+
+  &__left,
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 300;
+
+    .wi {
+      font-size: 1.1rem;
+      margin-right: 5px;
+      opacity: .6;
+
+      &:before {
+        color: var(--color-cyan);
+      }
+    }
+  }
+
+  &__middle {
+    font-size: 5rem;
+    font-weight: 700;
+  }
+}
