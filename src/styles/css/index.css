@@ -60,7 +60,10 @@ body {
   box-shadow: var(--shadow-dark);
   background: var(--color-dark-1);
   padding: 0 .7rem;
-  position: relative; }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
   @media only screen and (min-width: 75em) {
     .container {
       width: 100% !important;
@@ -200,7 +203,8 @@ body {
 .display {
   display: flex;
   justify-content: space-around;
-  margin: 2rem 0; }
+  margin: 2rem 0;
+  flex: 1; }
   .display__left, .display__right {
     display: flex;
     flex-direction: column;
@@ -214,5 +218,11 @@ body {
       .display__left .wi:before, .display__right .wi:before {
         color: var(--color-cyan); }
   .display__middle {
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 700; }
+
+.stackbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1; }
