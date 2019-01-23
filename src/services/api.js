@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const APPID = 'APP ID do openweather.org';
+export const APPID = '420184b6235f5f9cb1ba8921a68a96fe';
 
 const api = axios.create({
-  baseURL: `api.openweathermap.org/data/2.5/?appid=${APPID}`,
+  baseURL: 'https://api.openweathermap.org/data/2.5/',
 });
 
 export default api;
