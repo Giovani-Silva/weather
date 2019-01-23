@@ -12,21 +12,9 @@
   }
 
   .location {
-    font-size: 6vw;
+    font-size: 2rem;
     flex: 1;
     text-align: center;
-
-    @media only screen and (min-width: $bp-small) {
-      font-size: 5vw;
-    }
-
-    @media only screen and (min-width: $bp-medium) {
-      font-size: 4vw;
-    }
-
-    @media only screen and (min-width: $bp-large) {
-      font-size: 3vw;
-    }
   }
 
   div {
@@ -36,21 +24,9 @@
       border: 0;
       background: transparent;
       color: var(--color-grey-light-3);
-      font-size: 4vw;
+      font-size: 1.2rem;
       width: 1.1rem;
       margin: 0 .3rem;
-
-      @media only screen and (min-width: $bp-smallest) {
-        font-size: 3vw;
-      }
-
-      @media only screen and (min-width: $bp-small) {
-        font-size: 2vw;
-      }
-
-      @media only screen and (min-width: $bp-medium) {
-        font-size: 1vw;
-      }
     }
   }
 }

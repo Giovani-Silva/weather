@@ -101,36 +101,18 @@ body {
       flex-wrap: wrap;
       align-content: space-around; } }
   .header .location {
-    font-size: 6vw;
+    font-size: 2rem;
     flex: 1;
     text-align: center; }
-    @media only screen and (min-width: 37.5em) {
-      .header .location {
-        font-size: 5vw; } }
-    @media only screen and (min-width: 56.25em) {
-      .header .location {
-        font-size: 4vw; } }
-    @media only screen and (min-width: 68.75em) {
-      .header .location {
-        font-size: 3vw; } }
   .header div {
     display: flex; }
     .header div .btn__temp {
       border: 0;
       background: transparent;
       color: var(--color-grey-light-3);
-      font-size: 4vw;
+      font-size: 1.2rem;
       width: 1.1rem;
       margin: 0 .3rem; }
-      @media only screen and (min-width: 31.25em) {
-        .header div .btn__temp {
-          font-size: 3vw; } }
-      @media only screen and (min-width: 37.5em) {
-        .header div .btn__temp {
-          font-size: 2vw; } }
-      @media only screen and (min-width: 56.25em) {
-        .header div .btn__temp {
-          font-size: 1vw; } }
 
 .wi {
   line-height: 1.4;
@@ -314,16 +296,7 @@ body {
     .stack .stack__container--icons {
       overflow: initial; }
       .stack .stack__container--icons .wi {
-        font-size: 8vw; }
-        @media only screen and (min-width: 37.5em) {
-          .stack .stack__container--icons .wi {
-            font-size: 7vw; } }
-        @media only screen and (min-width: 56.25em) {
-          .stack .stack__container--icons .wi {
-            font-size: 6vw; } }
-        @media only screen and (min-width: 68.75em) {
-          .stack .stack__container--icons .wi {
-            font-size: 3vw; } }
+        font-size: 3rem; }
     .stack .stack__container .stack__group {
       display: flex;
       flex-direction: column;
@@ -374,16 +347,7 @@ body {
       justify-content: flex-start;
       align-items: center; }
       .list__days .list__items .list__items_left .wi {
-        font-size: 10vw; }
-        @media only screen and (min-width: 37.5em) {
-          .list__days .list__items .list__items_left .wi {
-            font-size: 8vw; } }
-        @media only screen and (min-width: 56.25em) {
-          .list__days .list__items .list__items_left .wi {
-            font-size: 7vw; } }
-        @media only screen and (min-width: 68.75em) {
-          .list__days .list__items .list__items_left .wi {
-            font-size: 4vw; } }
+        font-size: 3rem; }
       .list__days .list__items .list__items_left > div {
         display: flex;
         flex-direction: column;
@@ -394,18 +358,9 @@ body {
       justify-content: flex-end;
       align-items: center; }
       .list__days .list__items .list__items_right span {
-        font-size: 4vw;
+        font-size: 1.2rem;
         font-weight: 300;
         color: var(--color-grey-light-4); }
-        @media only screen and (min-width: 37.5em) {
-          .list__days .list__items .list__items_right span {
-            font-size: 3vw; } }
-        @media only screen and (min-width: 56.25em) {
-          .list__days .list__items .list__items_right span {
-            font-size: 2vw; } }
-        @media only screen and (min-width: 68.75em) {
-          .list__days .list__items .list__items_right span {
-            font-size: 2vw; } }
         .list__days .list__items .list__items_right span.list__items_bar {
           width: 100%;
           height: 2vh;
