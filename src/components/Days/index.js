@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Days = () => (
+const Days = ({ days }) => (
   <section className="days">
     <ul className="list__days">
       <li className="list__items">
