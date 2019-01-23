@@ -22,7 +22,7 @@ const StackBar = () => (
         </div>
       </div>
 
-      <div className="stack__container stack__container--bar">
+      <div className="stack__container">
         <div className="stack__group stack__group-morning flex-2">
           <div className="stack__item">21º</div>
           <div className="stack__item">25º</div>

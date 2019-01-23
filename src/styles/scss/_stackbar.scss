@@ -15,15 +15,23 @@
     align-items: center;
     overflow: hidden;
 
-    &--bar {
-      background: gray;
-    }
-
     &--icons {
       overflow: initial;
 
       .wi {
         font-size: 8vw;
+
+        @media only screen and (min-width: $bp-small) {
+          font-size: 7vw;
+        }
+
+        @media only screen and (min-width: $bp-medium) {
+          font-size: 6vw;
+        }
+
+        @media only screen and (min-width: $bp-large) {
+          font-size: 3vw;
+        }
       }
     }
 
@@ -53,7 +61,15 @@
         background-image: linear-gradient(to bottom, var(--color-pink), var(--color-purple));
       }
 
-      &-down {}
+      &-down {
+        background-color: var(--color-orange);
+        background-image: linear-gradient(to bottom, var(--color-purple), var(--color-gray-dark));
+      }
+
+      &-downLast {
+        background-color: var(--color-orange);
+        background-image: linear-gradient(to bottom, var(--color-gray-dark), var(--color-gray-dark));
+      }
 
       .stack__item {
         flex: 1;

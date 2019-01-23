@@ -1,0 +1,39 @@
+.fade {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(78, 77, 91, 0.63);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .popup__content {
+    min-height: 50vh;
+    width: 90%;
+    background: var(--color-gray-darken);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-shadow: var(--shadow-dark);
+
+
+    .popup__header {
+      color: var(--color-grey-dark-3);
+      font-size: 6vw;
+      font-weight: 700;
+      height: 6vh;
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 6vh;
+    }
+
+    .popup__body {
+      padding: 5vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
