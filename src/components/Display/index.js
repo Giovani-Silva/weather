@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Display = ({ now: { main, wind } }) => (
+const Display = ({ now: { main, wind, weather } }) => (
   <section className="display">
     <div className="display__left">
       <div>{`${Math.trunc(main.temp_max)}º +`}</div>
@@ -11,15 +11,14 @@ const Display = ({ now: { main, wind } }) => (
     <div className="display__right">
       <div>
         <i className="wi wi-owm-957" />
-        <span>{wind.speed}</span>
+        <span>{`${wind.speed} h`}</span>
       </div>
       <div>
         <i className="wi wi-owm-762" />
-        <span>{main.humidity}</span>
+        <span>{`${main.humidity} %`}</span>
       </div>
       <div>
-        <i className="wi wi-owm-906" />
-        <span>{Math.trunc(main.pressure)}</span>
+        <i className={`wi owm-${weather[0].icon}`} />
       </div>
     </div>
   </section>
@@ -32,11 +31,15 @@ Display.propTypes = {
       temp_min: PropTypes.number,
       temp_max: PropTypes.number,
       humidity: PropTypes.number,
-      pressure: PropTypes.number,
     }),
     wind: PropTypes.shape({
       speed: PropTypes.number,
     }),
+    weather: PropTypes.arrayOf(
+      PropTypes.shape({
+        icon: PropTypes.string,
+      }),
+    ),
   }).isRequired,
 };
 

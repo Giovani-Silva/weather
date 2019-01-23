@@ -5,7 +5,7 @@ import Mobile from '../Mobile';
 const Header = ({ city }) => (
   <header className="header">
     <Mobile />
-    <h1 className="location">{`${city.name} - ${city.country}`}</h1>
+    <h1 className="location">{`${city.name} - ${city.sys.country}`}</h1>
     <div>
       <button type="button" className="btn__temp">
         C
@@ -19,8 +19,10 @@ const Header = ({ city }) => (
 
 Header.propTypes = {
   city: PropTypes.shape({
-    country: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    sys: PropTypes.shape({
+      country: PropTypes.string,
+    }),
+    name: PropTypes.string,
   }).isRequired,
 };
 

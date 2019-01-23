@@ -8,7 +8,7 @@ import Display from './components/Display';
 import StackBar from './components/StackBar';
 import Days from './components/Days';
 
-const data = {
+const forecast = {
   list: [
     {
       dt: 1548223200,
@@ -266,11 +266,52 @@ const data = {
   },
 };
 
+const weather = {
+  "coord": {
+    "lon": -46.56,
+    "lat": -23.69
+  },
+  "weather": [{
+    "id": 802,
+    "main": "Clouds",
+    "description": "nuvens dispersas",
+    "icon": "03d"
+  }],
+  "base": "stations",
+  "main": {
+    "temp": 27.28,
+    "pressure": 1021,
+    "humidity": 65,
+    "temp_min": 27,
+    "temp_max": 28
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 2.6,
+    "deg": 130
+  },
+  "clouds": {
+    "all": 40
+  },
+  "dt": 1548248400,
+  "sys": {
+    "type": 1,
+    "id": 8446,
+    "message": 0.0035,
+    "country": "BR",
+    "sunrise": 1548232725,
+    "sunset": 1548280640
+  },
+  "id": 3448439,
+  "name": "São Bernardo do Campo",
+  "cod": 200
+}
 class App extends Component {
   state = {
     loading: true,
     page: 1,
-    data,
+    weather,
+    forecast
   };
 
   componentDidMount() {
@@ -282,17 +323,17 @@ class App extends Component {
   render() {
     const {
       loading,
-      data: { city, list },
+      weather
     } = this.state;
     return (
       <Fragment>
         {loading && <Spinner />}
         {!loading && (
           <div className="container">
-            <Header city={city} />
+            <Header city={weather} />
             <div className="content">
               <div className="dashboard">
-                <Display now={list[0]} />
+                <Display now={weather} />
                 <StackBar />
               </div>
               <Days />
