@@ -12,10 +12,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "npm-run-all -p sass start-react",
-    "build": "npm run build-css && react-scripts build",
-    "sassy": "node-sass --watch --include-path ./src/styles/scss --include-path ./node_modules src/ -o /styles/css",
+    "build": "npm-run-all build-css && react-scripts build",
     "sass": "node-sass --watch src/styles/scss -o  src/styles/css",
-    "build-css": "node-sass --watch src/styles/scss:src/styles/css  --style compressed"
+    "build-css": "node-sass src/styles/scss -o  src/styles/css  --style compressed"
   },
   "eslintConfig": {
     "extends": "react-app"
