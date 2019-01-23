@@ -1,0 +1,68 @@
+.stack {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex: 1;
+
+  .stack__container {
+    width: 50px;
+    height: 400px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    overflow: hidden;
+
+    &--bar {
+      background: gray;
+    }
+
+    &--icons {
+      overflow: initial;
+
+      .wi {
+        font-size: 8vw;
+      }
+    }
+
+    .stack__group {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%;
+
+      &-morning {
+        background-color: var(--color-cyan);
+        background-image: linear-gradient(to bottom, var(--color-blue), var(--color-cyan));
+      }
+
+      &-early {
+        background-color: var(--color-blue);
+        background-image: linear-gradient(to bottom, var(--color-purple), var(--color-blue));
+      }
+
+      &-afternoon {
+        background-color: var(--color-orange);
+        background-image: linear-gradient(to bottom, var(--color-orange), var(--color-yellow));
+      }
+
+      &-night {
+        background-color: var(--color-orange);
+        background-image: linear-gradient(to bottom, var(--color-pink), var(--color-purple));
+      }
+
+      &-down {}
+
+      .stack__item {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+  }
+}

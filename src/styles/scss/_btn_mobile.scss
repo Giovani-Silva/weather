@@ -1,8 +1,8 @@
 .btn--mobile {
   background: transparent;
   border: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 1.2rem;
+  height: 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -11,16 +11,11 @@
 
   >div {
     width: 2rem;
-    height: .3rem;
+    height: .2rem;
     background: var(--color-grey-light-1);
 
-    &:not(:first-child) {
-      width: 75%;
-
-    }
-
     &:last-child {
-      width: 50%;
+      width: 75%;
 
     }
   }

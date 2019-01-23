@@ -1,0 +1,32 @@
+.header {
+  font-size: 1.4rem;
+  height: 4rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media only screen and (min-width: $bp-medium) {
+    flex-wrap: wrap;
+    align-content: space-around;
+  }
+
+  .location {
+    font-size: 6vw;
+    flex: 1;
+    text-align: center;
+  }
+
+  div {
+    display: flex;
+
+    .btn__temp {
+      border: 0;
+      background: transparent;
+      color: var(--color-grey-light-3);
+      font-size: 4vw;
+      width: 1.1rem;
+      margin: 0 .3rem;
+    }
+  }
+}
