@@ -13,6 +13,7 @@ import Days from './components/Days';
 class App extends Component {
   state = {
     loading: true,
+    popup: false,
     city: 'São Bernardo do Campo',
     weather: null,
     forecast: null,
@@ -36,7 +37,9 @@ class App extends Component {
   };
 
   render() {
-    const { loading, weather, forecast } = this.state;
+    const {
+      loading, popup, weather, forecast,
+    } = this.state;
     return (
       <Fragment>
         {loading && <Spinner />}
@@ -51,7 +54,7 @@ class App extends Component {
                 </div>
                 <Days days={forecast} weather={weather} />
               </div>
-              {/* <PopUp /> */}
+              {popup && <PopUp />}
             </div>
         )}
       </Fragment>

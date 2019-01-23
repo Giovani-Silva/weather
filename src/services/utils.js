@@ -21,3 +21,7 @@ export const groupByDate = (list) => {
 
   return groupDatas;
 };
+
+// data.day_24.reduce((min, p) => p.main.temp_min < min ? p.main.temp_min : min, data.day_24[0].main.temp_min)
+
+// data.day_24.reduce((max, p) => p.main.temp_max > max ? p.main.temp_max : max, data.day_24[0].main.temp_max);
