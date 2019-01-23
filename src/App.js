@@ -13,8 +13,10 @@ import Days from './components/Days';
 class App extends Component {
   state = {
     loading: true,
+    city: 'São Bernardo do Campo',
     weather: null,
     forecast: null,
+    error: null,
   };
 
   componentDidMount() {
@@ -22,15 +24,15 @@ class App extends Component {
     this.loadData('forecast');
   }
 
-  loadData = async (
-    type = 'weather',
-    units = 'metric',
-    lang = 'pt',
-    city = 'São Bernardo do Campo, br',
-  ) => {
-    const { data } = await api.get(`${type}?appid=${APPID}&units=${units}&lang=${lang}&q=${city}`);
-
-    if (data) this.setState({ ...this.state, loading: false, [type]: data });
+  loadData = async (type = 'weather', city = this.state.city, units = 'metric', lang = 'pt') => {
+    try {
+      const { data } = await api.get(
+        `${type}?appid=${APPID}&units=${units}&lang=${lang}&q=${city}`,
+      );
+      this.setState({ ...this.state, loading: false, [type]: data });
+    } catch (err) {
+      this.setState({ ...this.state, error: 'Não foi possível encontrar a cidade' });
+    }
   };
 
   render() {
@@ -41,13 +43,13 @@ class App extends Component {
         {!loading
           && weather && (
             <div className="container">
-              <Header city={weather} />
+              <Header city={weather} loadData={this.loadData} />
               <div className="content">
                 <div className="dashboard">
                   <Display now={weather} />
-                  <StackBar />
+                  <StackBar days={forecast} />
                 </div>
-                <Days days={forecast} />
+                <Days days={forecast} weather={weather} />
               </div>
               {/* <PopUp /> */}
             </div>

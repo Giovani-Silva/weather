@@ -19,6 +19,7 @@ const Display = ({ now: { main, wind, weather } }) => (
       </div>
       <div>
         <i className={`wi owm-${weather[0].icon}`} />
+        <span>{`${weather[0].main}`}</span>
       </div>
     </div>
   </section>
