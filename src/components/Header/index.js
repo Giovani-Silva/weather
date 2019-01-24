@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Mobile from '../Mobile';
 
 const setUnits = (units, city, loadData) => {
   loadData('weather', city, units);
   loadData('forecast', city, units);
 };
 
-const Header = ({ city, loadData }) => (
+const Header = ({ city, loadData, openForm }) => (
   <header className="header">
-    <Mobile />
+    <button type="button" className="btn--mobile" onClick={() => openForm()}>
+      <div className="mobile__bar1" />
+      <div className="mobile__bar2" />
+    </button>
     <h1 className="location">{`${city.name} - ${city.sys.country}`}</h1>
     <div>
       <button
@@ -32,6 +34,7 @@ const Header = ({ city, loadData }) => (
 
 Header.propTypes = {
   loadData: PropTypes.func.isRequired,
+  openForm: PropTypes.func.isRequired,
   city: PropTypes.shape({
     sys: PropTypes.shape({
       country: PropTypes.string,

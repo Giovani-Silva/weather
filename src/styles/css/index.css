@@ -100,7 +100,7 @@ body {
       flex-wrap: wrap;
       align-content: space-around; } }
   .header .location {
-    font-size: 2rem;
+    font-size: 1.2rem;
     flex: 1;
     text-align: center; }
   .header div {
@@ -230,26 +230,59 @@ body {
   bottom: 0; }
   .fade .popup__content {
     min-height: 50vh;
-    width: 90%;
+    width: 100%;
     background: var(--color-gray-darken);
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
     box-shadow: var(--shadow-dark); }
+    @media screen and (min-width: 37.5em) {
+      .fade .popup__content {
+        width: 60%; } }
     .fade .popup__content .popup__header {
-      color: var(--color-grey-dark-3);
-      font-size: 6vw;
+      color: var(--color-red);
+      font-size: 1.5rem;
       font-weight: 700;
       height: 6vh;
       text-align: center;
       text-transform: uppercase;
       line-height: 6vh; }
     .fade .popup__content .popup__body {
-      padding: 5vw;
+      padding: 4rem;
       display: flex;
       flex-direction: column;
-      align-items: center; }
+      align-items: center;
+      color: var(--color-gray-dark-3); }
+      .fade .popup__content .popup__body input[type='text'] {
+        height: 2.5rem;
+        width: 100%;
+        margin: 2rem 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        border-bottom: 4px solid var(--color-red);
+        color: var(--color-red);
+        font-size: 1.6rem;
+        padding: 1rem; }
+      .fade .popup__content .popup__body .actions {
+        display: flex;
+        width: 100%;
+        justify-content: space-between; }
+        .fade .popup__content .popup__body .actions button {
+          border: 0;
+          outline: 0;
+          background: var(--color-red);
+          height: 2.5rem;
+          width: 40%;
+          font-size: 1rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: var(--color-grey-light-1); }
+          .fade .popup__content .popup__body .actions button:last-child {
+            background: var(--color-cyan); }
+          .fade .popup__content .popup__body .actions button:hover {
+            opacity: .6; }
 
 .display {
   display: flex;
@@ -338,8 +371,8 @@ body {
   .list__days .list__items {
     display: flex;
     justify-content: space-between;
-    height: 11vh;
-    margin: .9vh 1.2vh; }
+    height: 15vh;
+    margin: 1.3vh 1.2vh; }
     .list__days .list__items .list__items_left {
       display: flex;
       width: 40%;
@@ -365,4 +398,5 @@ body {
           height: 2vh;
           border-radius: 10px;
           margin: 0 10px;
-          background: linear-gradient(to right, var(--color-cyan), var(--color-purple)); }
+          background: linear-gradient(to right, var(--color-yellow), var(--color-red));
+          transition: width cubic-bezier(0.18, 0.89, 0.32, 1.28) 0.5s; }

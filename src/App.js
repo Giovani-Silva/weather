@@ -36,6 +36,8 @@ class App extends Component {
     }
   };
 
+  openForm = () => this.setState({ popup: !this.state.popup });
+
   render() {
     const {
       loading, popup, weather, forecast,
@@ -46,7 +48,7 @@ class App extends Component {
         {!loading
           && weather && (
             <div className="container">
-              <Header city={weather} loadData={this.loadData} />
+              <Header city={weather} loadData={this.loadData} openForm={this.openForm} />
               <div className="content">
                 <div className="dashboard">
                   <Display now={weather} />
@@ -54,7 +56,7 @@ class App extends Component {
                 </div>
                 <Days days={forecast} weather={weather} />
               </div>
-              {popup && <PopUp />}
+              {popup && <PopUp closePopup={this.openForm} />}
             </div>
         )}
       </Fragment>
