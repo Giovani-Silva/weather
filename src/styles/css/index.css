@@ -74,7 +74,6 @@ body {
       width: 100% !important;
       max-width: 120rem !important;
       height: 100%;
-      min-height: 50rem;
       margin: 0;
       max-width: 100%;
       width: 100%; } }
@@ -295,7 +294,8 @@ body {
     justify-content: space-around;
     align-items: center;
     font-weight: 300;
-    width: 20vw; }
+    width: 20vw;
+    text-align: center; }
     .display__left .wi, .display__right .wi {
       font-size: 1.1rem;
       margin-right: 5px;
@@ -315,6 +315,10 @@ body {
   justify-content: space-around;
   align-items: flex-end;
   flex: 1; }
+  @media only screen and (min-width: 75em) {
+    .stack {
+      width: 75%;
+      margin: 0 auto; } }
   .stack .stack__container {
     width: 50px;
     height: 400px;
@@ -328,7 +332,7 @@ body {
     .stack .stack__container--icons {
       overflow: initial; }
       .stack .stack__container--icons .wi {
-        font-size: 3rem; }
+        font-size: 2rem; }
     .stack .stack__container .stack__group {
       display: flex;
       flex-direction: column;

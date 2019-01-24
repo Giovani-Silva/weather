@@ -4,6 +4,11 @@
   align-items: flex-end;
   flex: 1;
 
+  @media only screen and (min-width: $bp-largest) {
+    width: 75%;
+    margin: 0 auto;
+  }
+
   .stack__container {
     width: 50px;
     height: 400px;
@@ -19,7 +24,7 @@
       overflow: initial;
 
       .wi {
-        font-size: 3rem;
+        font-size: 2rem;
       }
     }
 
