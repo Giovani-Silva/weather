@@ -238,6 +238,12 @@ body {
     @media screen and (min-width: 37.5em) {
       .fade .popup__content {
         width: 60%; } }
+    @media screen and (min-width: 75em) {
+      .fade .popup__content {
+        width: 50%; } }
+    @media screen and (min-width: 100em) {
+      .fade .popup__content {
+        width: 43rem; } }
     .fade .popup__content .popup__header {
       color: var(--color-red);
       font-size: 1.5rem;

@@ -1,30 +1,47 @@
-import React from 'react';
-import { montaArrayBar } from '../../services/utils';
+import React, { Fragment } from 'react';
+import { montaArrayBar, compactRender } from '../../services/utils';
 
-// const segment = {
-//   '3-7': 'madrugada',
-//   '8-11': 'manha',
-//   '12-15': 'tarde',
-//   '16-21': 'tarde2',
-//   '22-2': 'noite3',
-// };
-
-const loadList = (days) => {
+const loadList = (days, col) => {
   if (days) {
     const { list } = days;
     const lista = list.slice(0, 7);
-    console.log(lista);
-    const now = new Date().getHours();
-    console.log(montaArrayBar(now, lista));
+    const now = new Date();
+    let stack = montaArrayBar(now, lista);
+    console.log(stack);
+    stack = compactRender(stack);
+    console.log(stack);
+    // '1548358979161_0_dawn'.replace(/[0-9]+\_/g, "")
+
+    /*   return stack.map(obj => (
+      <Fragment key={obj.hour}>
+        <div className="stack__container">
+          <div className={`stack__group ${obj.flex}`}>
+            <div className="stack__item">{obj.hour}</div>
+            <div className="stack__item">{`${obj.hour} am`}</div>
+          </div>
+        </div>
+        <div className="stack__container">
+          <div className={`stack__group stack__group-morning ${obj.flex}`}>
+            <div className="stack__item">21º</div>
+            <div className="stack__item">25º</div>
+          </div>
+        </div>
+        <div className="stack__container stack__container--icons">
+          <div className={`stack__group ${obj.flex}`}>
+            <i className="wi owm-01d" />
+          </div>
+        </div>
+      </Fragment>
+    )); */
   }
 };
-const StackBar = ({ days }) => {
-  loadList(days);
-
-  return (
-    <section>
-      <div className="stack">
-        <div className="stack__container">
+const StackBar = ({ days }) => (
+  <section>
+    <div className="stack">
+      <div className="stack__container">{loadList(days, 'left')}</div>
+      <div className="stack__container">{loadList(days, 'mid')}</div>
+      <div className="stack__container stack__container--icons">{loadList(days, 'right')}</div>
+      {/*        <div className="stack__container">
           <div className="stack__group flex-2">
             <div className="stack__item">Now</div>
             <div className="stack__item">11 am</div>
@@ -42,8 +59,8 @@ const StackBar = ({ days }) => {
             <div className="stack__item">11 pm</div>
           </div>
         </div>
-
-        <div className="stack__container">
+ */}
+      {/*       <div className="stack__container">
           <div className="stack__group stack__group-morning flex-2">
             <div className="stack__item">21º</div>
             <div className="stack__item">25º</div>
@@ -61,8 +78,8 @@ const StackBar = ({ days }) => {
             <div className="stack__item">25º</div>
           </div>
         </div>
-
-        <div className="stack__container stack__container--icons">
+ */}
+      {/*   <div className="stack__container stack__container--icons">
           <div className="stack__group flex-2">
             <i className="wi owm-01d" />
           </div>
@@ -75,10 +92,9 @@ const StackBar = ({ days }) => {
           <div className="stack__group flex-1">
             <i className="wi owm-09n" />
           </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+        </div> */}
+    </div>
+  </section>
+);
 
 export default StackBar;

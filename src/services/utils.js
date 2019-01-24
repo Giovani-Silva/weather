@@ -4,6 +4,12 @@ const getKeyObject = (key) => {
   return k;
 };
 
+// const dtTotxt = (data) => {
+//   const d = new Date(data);
+//   const k = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()} ${d.getHours()}:00:00`;
+//   return k;
+// };
+
 export const weekday = (data) => {
   const d = new Date(data);
   const weekDay = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -35,60 +41,90 @@ export const groupByDate = (list) => {
   return groupDatas;
 };
 
-export const montaArrayBar = (now, lista) => {
+/*
+  '3-7': 'dawn',
+  '8-11': 'morning',
+  '12-15': 'afternoon',
+  '16-21': 'dusk' =>,
+  '22-2': 'night',
+*/
+export const montaArrayBar = (data, lista) => {
   const arr = [];
+  let now = data.getHours();
   now = now % 2 ? now : now - 1;
+  const periodo = compactPeriodo(lista);
 
-  for (let i = 0; i < 7; i++) {
-    const periodo = new Date(lista[i].dt_txt).getHours();
-    const item = lista[i];
+  for (let i = 0; i <= lista.length; i++) {
     if (now > 2 && now < 8) {
+      // 3 ~ 7
       arr.push({
-        color: 'dawn',
-        hours: now,
-        item: now < periodo && periodo < 8 ? item.dt_txt : null,
+        color: '0_dawn',
+        hour: now,
+        item: periodo[6] || 'weather',
       });
     }
-    if (now > 7 && now < 12) {
+    if (now > 7 && now < 13) {
+      // 8 ~ 12
       arr.push({
-        color: 'manha',
-        hours: now,
-        item: now > periodo && periodo < 12 ? item.dt_txt : null,
+        color: '1_morning',
+        hour: now,
+        item: periodo[9] || 'weather',
       });
     }
-    if (now > 11 && now < 16) {
+    if (now > 12 && now < 16) {
+      // 13 ~ 15
       arr.push({
-        color: 'afternoon',
-        hours: now,
-        item: periodo > 11 && periodo < 16 ? item.dt_txt : null,
+        color: '2_afternoon',
+        hour: now,
+        item: periodo[13] || 'weather',
       });
     }
     if (now > 15 && now < 22) {
+      // 16 ~ 21
       arr.push({
-        color: 'dusk',
-        hours: now,
-        item: periodo > 15 && periodo < 22 ? item.dt_txt : null,
+        color: '3_dusk',
+        hour: now,
+        item: periodo[16] || 'weather',
       });
     }
-    if (now > 21 || now < 2) {
+    if ((now > 21 && now < 24) || (now > -1 && now < 3)) {
+      // 22 ~ 2
       arr.push({
-        color: 'night',
-        hours: now,
-        item: periodo > 21 || periodo < 2 ? item.dt_txt : null,
+        color: '4_night',
+        hour: now,
+        item: periodo[22] || 'weather',
       });
     }
-    now += 2;
+    now = now > 23 ? 1 : now+ 2;
   }
-  return arr;
+
+  const filter = arr.map((i) => {
+    const flex = arr.filter(o => o.color === i.color).length;
+    return { ...i, flex: `flex-${flex}` };
+  });
+
+  return filter;
 };
 
-export const groupItemsBar = (list) => {
+export const compactPeriodo = (list) => {
   const group = [];
   for (let it = 0; it < list.length; it++) {
     const item = list[it];
-    const key = item.color;
+    const key = new Date(item.dt * 1000).getHours();
+    if (!group[key]) group[key] = '';
+    group[key] = item;
+  }
+  return group;
+};
+
+export const compactRender = (stack) => {
+  const group = [];
+  for (let it = 0; it < stack.length; it++) {
+    const item = stack[it];
+    const key = new Date().getTime() + '_' + item.color;
     if (!group[key]) group[key] = [];
-    group[key].push(item);
+    group[key] = [...group[key], { ...item
+    }];
   }
   return group;
 };
