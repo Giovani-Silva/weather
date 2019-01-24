@@ -14,7 +14,7 @@ class App extends Component {
   state = {
     loading: true,
     popup: false,
-    city: 'São Bernardo do Campo',
+    city: 'São Bernardo do Campo,br',
     weather: null,
     forecast: null,
     error: null,
@@ -32,11 +32,26 @@ class App extends Component {
       );
       this.setState({ ...this.state, loading: false, [type]: data });
     } catch (err) {
-      this.setState({ ...this.state, error: 'Não foi possível encontrar a cidade' });
+      this.setState({
+        ...this.state,
+        error: 'Não foi possível encontrar a cidade',
+        loading: false,
+      });
     }
   };
 
   openForm = () => this.setState({ popup: !this.state.popup });
+
+  setCity = async (city) => {
+    await this.setState({
+      ...this.state,
+      city,
+      loading: true,
+      popup: !this.state.popup,
+    });
+    this.loadData('weather');
+    this.loadData('forecast');
+  };
 
   render() {
     const {
@@ -56,7 +71,7 @@ class App extends Component {
                 </div>
                 <Days days={forecast} weather={weather} />
               </div>
-              {popup && <PopUp closePopup={this.openForm} />}
+              {popup && <PopUp closePopup={this.openForm} setCity={this.setCity} />}
             </div>
         )}
       </Fragment>

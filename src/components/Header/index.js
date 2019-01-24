@@ -17,14 +17,14 @@ const Header = ({ city, loadData, openForm }) => (
       <button
         type="button"
         className="btn__temp"
-        onClick={() => setUnits('metric', city.name, loadData)}
+        onClick={() => setUnits('metric', `${city.name},${city.sys.country}`, loadData)}
       >
         C
       </button>
       <button
         type="button"
         className="btn__temp"
-        onClick={() => setUnits('imperial', city.name, loadData)}
+        onClick={() => setUnits('imperial', `${city.name},${city.sys.country}`, loadData)}
       >
         F
       </button>
