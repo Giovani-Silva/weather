@@ -1,7 +1,26 @@
 import React from 'react';
+import { montaArrayBar } from '../../services/utils';
 
+// const segment = {
+//   '3-7': 'madrugada',
+//   '8-11': 'manha',
+//   '12-15': 'tarde',
+//   '16-21': 'tarde2',
+//   '22-2': 'noite3',
+// };
+
+const loadList = (days) => {
+  if (days) {
+    const { list } = days;
+    const lista = list.slice(0, 7);
+    console.log(lista);
+    const now = new Date().getHours();
+    console.log(montaArrayBar(now, lista));
+  }
+};
 const StackBar = ({ days }) => {
-  console.log(days);
+  loadList(days);
+
   return (
     <section>
       <div className="stack">
