@@ -34,36 +34,6 @@
       justify-content: space-around;
       width: 100%;
 
-      &-morning {
-        background-color: var(--color-cyan);
-        background-image: linear-gradient(to bottom, var(--color-blue), var(--color-cyan));
-      }
-
-      &-early {
-        background-color: var(--color-blue);
-        background-image: linear-gradient(to bottom, var(--color-purple), var(--color-blue));
-      }
-
-      &-afternoon {
-        background-color: var(--color-orange);
-        background-image: linear-gradient(to bottom, var(--color-orange), var(--color-yellow));
-      }
-
-      &-night {
-        background-color: var(--color-orange);
-        background-image: linear-gradient(to bottom, var(--color-pink), var(--color-purple));
-      }
-
-      &-down {
-        background-color: var(--color-orange);
-        background-image: linear-gradient(to bottom, var(--color-purple), var(--color-gray-dark));
-      }
-
-      &-downLast {
-        background-color: var(--color-orange);
-        background-image: linear-gradient(to bottom, var(--color-gray-dark), var(--color-gray-dark));
-      }
-
       .stack__item {
         flex: 1;
         width: 100%;
@@ -73,5 +43,45 @@
       }
     }
 
+  }
+}
+
+.dawn {
+  background-image: linear-gradient(to bottom, var(--color-purple-2), var(--color-purple-2));
+
+  &.first {
+    background: linear-gradient(to bottom, var(--color-purple) -15%, var(--color-purple-2));
+  }
+}
+
+.morning {
+  background-image: linear-gradient(to bottom, var(--color-cyan), var(--color-cyan));
+
+  &.first {
+    background: linear-gradient(to bottom, var(--color-purple) -15%, var(--color-cyan));
+  }
+}
+
+.afternoon {
+  background-image: linear-gradient(to bottom, var(--color-blue), var(--color-blue));
+
+  &.first {
+    background: linear-gradient(to bottom, var(--color-purple) -15%, var(--color-blue));
+  }
+}
+
+.dusk {
+  background: linear-gradient(to bottom, var(--color-yellow), var(--color-yellow));
+
+  &.first {
+    background: linear-gradient(to bottom, var(--color-orange) -15%, var(--color-yellow));
+  }
+}
+
+.night {
+  background-image: linear-gradient(to bottom, var(--color-grey-dark-2), var(--color-grey-dark-2));
+
+  &.first {
+    background: linear-gradient(to bottom, var(--color-grey-dark-1) -15%, var(--color-grey-dark-2));
   }
 }

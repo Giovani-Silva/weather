@@ -67,7 +67,7 @@ class App extends Component {
               <div className="content">
                 <div className="dashboard">
                   <Display now={weather} />
-                  <StackBar days={forecast} />
+                  <StackBar days={forecast} weather={weather}/>
                 </div>
                 <Days days={forecast} weather={weather} />
               </div>

@@ -58,44 +58,44 @@ export const montaArrayBar = (data, lista) => {
     if (now > 2 && now < 8) {
       // 3 ~ 7
       arr.push({
-        color: '0_dawn',
-        hour: now,
-        item: periodo[6] || 'weather',
+        color: 'dawn',
+        hour: format_time(now),
+        item: periodo[3] || 'weather',
       });
     }
     if (now > 7 && now < 13) {
       // 8 ~ 12
       arr.push({
-        color: '1_morning',
-        hour: now,
+        color: 'morning',
+        hour: format_time(now),
         item: periodo[9] || 'weather',
       });
     }
     if (now > 12 && now < 16) {
       // 13 ~ 15
       arr.push({
-        color: '2_afternoon',
-        hour: now,
-        item: periodo[13] || 'weather',
+        color: 'afternoon',
+        hour: format_time(now),
+        item: periodo[15] || 'weather',
       });
     }
     if (now > 15 && now < 22) {
       // 16 ~ 21
       arr.push({
-        color: '3_dusk',
-        hour: now,
-        item: periodo[16] || 'weather',
+        color: 'dusk',
+        hour: format_time(now),
+        item: periodo[18] || 'weather',
       });
     }
     if ((now > 21 && now < 24) || (now > -1 && now < 3)) {
       // 22 ~ 2
       arr.push({
-        color: '4_night',
-        hour: now,
-        item: periodo[22] || 'weather',
+        color: 'night',
+        hour: format_time(now),
+        item: periodo[0] || 'weather',
       });
     }
-    now = now > 23 ? 1 : now+ 2;
+    now = now > 23 ? 1 : now + 2;
   }
 
   const filter = arr.map((i) => {
@@ -110,7 +110,7 @@ export const compactPeriodo = (list) => {
   const group = [];
   for (let it = 0; it < list.length; it++) {
     const item = list[it];
-    const key = new Date(item.dt * 1000).getHours();
+    const key = new Date(item.dt_txt).getHours();
     if (!group[key]) group[key] = '';
     group[key] = item;
   }
@@ -121,10 +121,24 @@ export const compactRender = (stack) => {
   const group = [];
   for (let it = 0; it < stack.length; it++) {
     const item = stack[it];
-    const key = new Date().getTime() + '_' + item.color;
+    const key = `${new Date().getTime()}_${item.color}`;
     if (!group[key]) group[key] = [];
-    group[key] = [...group[key], { ...item
-    }];
+    group[key] = [
+      ...group[key],
+      {
+        ...item,
+      },
+    ];
   }
   return group;
+};
+
+const format_time = (hour) => {
+  const amPM = hour > 11 ? 'pm' : 'am';
+  if (hour > 12) {
+    hour -= 12;
+  } else if (hour === 0) {
+    hour = '12';
+  }
+  return `${hour} ${amPM}`;
 };

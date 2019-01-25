@@ -10,7 +10,7 @@
 
 
   @media only screen and (min-width: $bp-largest) {
-    width: 100% !important;
+    width: 80% !important;
     max-width: 120rem !important;
     height: 100%;
     margin: 0;
@@ -27,9 +27,4 @@
     flex-direction: column;
   }
 
-  .dashboard {
-    @media only screen and (min-width: $bp-large) {
-      width: 60%
-    }
-  }
 }

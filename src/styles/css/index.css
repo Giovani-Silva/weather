@@ -2,6 +2,7 @@
   --color-cyan: #05D9F6;
   --color-blue: #4071E0;
   --color-purple: #5224B0;
+  --color-purple-2: #9C27B0;
   --color-yellow: #F6CF6A;
   --color-orange: #E5773F;
   --color-red: #FF3366;
@@ -70,7 +71,7 @@ body {
   flex-direction: column; }
   @media only screen and (min-width: 75em) {
     .container {
-      width: 100% !important;
+      width: 80% !important;
       max-width: 120rem !important;
       height: 100%;
       margin: 0;
@@ -83,9 +84,6 @@ body {
   @media only screen and (max-width: 56.25em) {
     .content {
       flex-direction: column; } }
-  @media only screen and (min-width: 68.75em) {
-    .content .dashboard {
-      width: 60%; } }
 
 .header {
   font-size: 1.4rem;
@@ -343,30 +341,37 @@ body {
       flex-direction: column;
       justify-content: space-around;
       width: 100%; }
-      .stack .stack__container .stack__group-morning {
-        background-color: var(--color-cyan);
-        background-image: linear-gradient(to bottom, var(--color-blue), var(--color-cyan)); }
-      .stack .stack__container .stack__group-early {
-        background-color: var(--color-blue);
-        background-image: linear-gradient(to bottom, var(--color-purple), var(--color-blue)); }
-      .stack .stack__container .stack__group-afternoon {
-        background-color: var(--color-orange);
-        background-image: linear-gradient(to bottom, var(--color-orange), var(--color-yellow)); }
-      .stack .stack__container .stack__group-night {
-        background-color: var(--color-orange);
-        background-image: linear-gradient(to bottom, var(--color-pink), var(--color-purple)); }
-      .stack .stack__container .stack__group-down {
-        background-color: var(--color-orange);
-        background-image: linear-gradient(to bottom, var(--color-purple), var(--color-gray-dark)); }
-      .stack .stack__container .stack__group-downLast {
-        background-color: var(--color-orange);
-        background-image: linear-gradient(to bottom, var(--color-gray-dark), var(--color-gray-dark)); }
       .stack .stack__container .stack__group .stack__item {
         flex: 1;
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center; }
+
+.dawn {
+  background-image: linear-gradient(to bottom, var(--color-purple-2), var(--color-purple-2)); }
+  .dawn.first {
+    background: linear-gradient(to bottom, var(--color-purple) -15%, var(--color-purple-2)); }
+
+.morning {
+  background-image: linear-gradient(to bottom, var(--color-cyan), var(--color-cyan)); }
+  .morning.first {
+    background: linear-gradient(to bottom, var(--color-purple) -15%, var(--color-cyan)); }
+
+.afternoon {
+  background-image: linear-gradient(to bottom, var(--color-blue), var(--color-blue)); }
+  .afternoon.first {
+    background: linear-gradient(to bottom, var(--color-purple) -15%, var(--color-blue)); }
+
+.dusk {
+  background: linear-gradient(to bottom, var(--color-yellow), var(--color-yellow)); }
+  .dusk.first {
+    background: linear-gradient(to bottom, var(--color-orange) -15%, var(--color-yellow)); }
+
+.night {
+  background-image: linear-gradient(to bottom, var(--color-grey-dark-2), var(--color-grey-dark-2)); }
+  .night.first {
+    background: linear-gradient(to bottom, var(--color-grey-dark-1) -15%, var(--color-grey-dark-2)); }
 
 .days {
   width: 100%; }
@@ -380,8 +385,7 @@ body {
   .list__days .list__items {
     display: flex;
     justify-content: space-between;
-    height: 7rem;
-    margin: 1.3vh 1.2vh; }
+    height: 7rem; }
     .list__days .list__items .list__items_left {
       display: flex;
       width: 40%;
