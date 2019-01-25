@@ -6,7 +6,7 @@ import { montaArrayBar } from '../../services/utils';
 const loadList = (days, col, weather) => {
   if (days) {
     const { list } = days;
-    const lista = list.slice(0, 7);
+    const lista = list.slice(0, 6);
     const now = new Date();
     const stack = montaArrayBar(now, lista);
 

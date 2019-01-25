@@ -189,6 +189,21 @@ body {
     .btn--mobile > div:last-child {
       width: 75%; }
 
+.message__box {
+  background: rgba(255, 56, 102, 0.58);
+  padding: .5rem 2rem;
+  font-size: 1.2rem;
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+  line-height: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem; }
+  .message__box button {
+    border: 0;
+    background: var(--color-black);
+    opacity: .6; }
+
 .lds-dual-ring {
   display: inline-block;
   width: 64px;

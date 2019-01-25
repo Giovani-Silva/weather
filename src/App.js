@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Display from './components/Display';
 import StackBar from './components/StackBar';
 import Days from './components/Days';
+import MessageBox from './components/MessageBox';
 
 class App extends Component {
   state = {
@@ -17,7 +18,7 @@ class App extends Component {
     city: 'São Bernardo do Campo,br',
     weather: null,
     forecast: null,
-    error: null,
+    msg: null,
   };
 
   componentDidMount() {
@@ -30,13 +31,24 @@ class App extends Component {
       const { data } = await api.get(
         `${type}?appid=${APPID}&units=${units}&lang=${lang}&q=${city}`,
       );
-      this.setState({ ...this.state, loading: false, [type]: data });
+      this.setState({
+        ...this.state,
+        msg: null,
+        loading: false,
+        [type]: data,
+      });
     } catch (err) {
       this.setState({
         ...this.state,
-        error: 'Não foi possível encontrar a cidade',
+        msg: { info: 'Não foi possível encontrar a cidade', type: 'error' },
         loading: false,
       });
+      setTimeout(() => {
+        this.setState({
+          ...this.state,
+          msg: null,
+        });
+      }, 3000);
     }
   };
 
@@ -53,9 +65,16 @@ class App extends Component {
     this.loadData('forecast');
   };
 
+  closeMessageBox = () => {
+    this.setState({
+      ...this.state,
+      msg: null,
+    });
+  };
+
   render() {
     const {
-      loading, popup, weather, forecast,
+      loading, popup, weather, forecast, msg,
     } = this.state;
     return (
       <Fragment>
@@ -64,10 +83,11 @@ class App extends Component {
           && weather && (
             <div className="container">
               <Header city={weather} loadData={this.loadData} openForm={this.openForm} />
+              {msg && <MessageBox msg={msg} close={this.closeMessageBox} />}
               <div className="content">
                 <div className="dashboard">
                   <Display now={weather} />
-                  <StackBar days={forecast} weather={weather}/>
+                  <StackBar days={forecast} weather={weather} />
                 </div>
                 <Days days={forecast} weather={weather} />
               </div>

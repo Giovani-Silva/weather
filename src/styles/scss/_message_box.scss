@@ -1,0 +1,28 @@
+.message__box {
+  background: rgba(255, 56, 102, 0.58);
+  padding: .5rem 2rem;
+  font-size: 1.2rem;
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+  line-height: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    border: 0;
+    background: var(--color-black);
+    opacity: .3;
+    color: #FFF;
+    font-weight: 700;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+}

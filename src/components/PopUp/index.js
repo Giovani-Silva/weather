@@ -25,6 +25,7 @@ class PopUp extends Component {
                 type="text"
                 placeholder="São Paulo"
                 onChange={e => this.setState({ inputCity: e.target.value })}
+                autoFocus
               />
               <div className="actions">
                 <button type="button" onClick={closePopup}>
