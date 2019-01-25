@@ -198,11 +198,20 @@ body {
   margin: 0 auto;
   line-height: 2rem;
   font-weight: 700;
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between; }
   .message__box button {
     border: 0;
     background: var(--color-black);
-    opacity: .6; }
+    opacity: .3;
+    color: #FFF;
+    font-weight: 700;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%; }
+    .message__box button:hover {
+      opacity: .6; }
 
 .lds-dual-ring {
   display: inline-block;
@@ -363,9 +372,9 @@ body {
         justify-content: center;
         align-items: center; }
 
-.dawn {
+.night {
   background-image: linear-gradient(to bottom, var(--color-purple-2), var(--color-purple-2)); }
-  .dawn.first {
+  .night.first {
     background: linear-gradient(to bottom, var(--color-purple) -15%, var(--color-purple-2)); }
 
 .morning {
@@ -383,9 +392,9 @@ body {
   .dusk.first {
     background: linear-gradient(to bottom, var(--color-orange) -15%, var(--color-yellow)); }
 
-.night {
+.dawn {
   background-image: linear-gradient(to bottom, var(--color-grey-dark-2), var(--color-grey-dark-2)); }
-  .night.first {
+  .dawn.first {
     background: linear-gradient(to bottom, var(--color-grey-dark-1) -15%, var(--color-grey-dark-2)); }
 
 .days {
