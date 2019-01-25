@@ -18,7 +18,7 @@ const StackItem = ({
       return <div className={`stack__item ${color}${printFirst}`}>{`${Math.trunc(temp)}º`}</div>;
     case 'right':
       const icon = item.item !== 'weather' ? item.item.weather[0].icon : weather.weather[0].icon;
-      return <i className={`wi owm-${icon}${printFirst}`} />;
+      return <i className={`wi owm-${icon}${printFirst} ${item.flex}`} />;
 
     default:
       return null;

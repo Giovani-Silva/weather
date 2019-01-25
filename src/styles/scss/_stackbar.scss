@@ -41,6 +41,19 @@
         justify-content: center;
         align-items: center;
       }
+
+      .wi {
+        &:not(.first) {
+          display: none;
+          align-items: center;
+        }
+
+        &.first {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     }
 
   }
