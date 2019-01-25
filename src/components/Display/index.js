@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const Display = ({ now: { main, wind, weather } }) => (
   <section className="display">
+    <h2 className="hide">Informações de temperatura atual</h2>
     <div className="display__left">
       <div>{`${Math.trunc(main.temp_max)}º +`}</div>
       <div>{`${Math.trunc(main.temp_min)}º -`}</div>

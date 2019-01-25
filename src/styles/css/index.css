@@ -85,6 +85,12 @@ body {
     .content {
       flex-direction: column; } }
 
+.hide {
+  position: absolute;
+  left: 100%;
+  top: 100%;
+  font-size: 0.0001px; }
+
 .header {
   font-size: 1.4rem;
   height: 4rem;

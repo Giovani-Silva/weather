@@ -22,6 +22,7 @@ const loadList = (days, col, weather) => {
 };
 const StackBar = ({ days, weather }) => (
   <section>
+   <h2 className="hide">Temperatura próximas 12 horas</h2>
     <div className="stack">
       <div className="stack__container">
         <div className="stack__group flex-1">{loadList(days, 'left', weather)}</div>

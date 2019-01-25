@@ -62,6 +62,7 @@ class Days extends Component {
   render() {
     return (
       <section className="days">
+       <h2 className="hide">Informações de temperatura próximos 5 dias</h2>
         <ul className="list__days">
           {this.renderToday()}
           {this.renderItem()}
